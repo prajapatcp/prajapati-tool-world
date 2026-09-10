@@ -225,9 +225,26 @@ function selectBusinessType(type){
 function finishExistingApp(){onboarding.classList.add("hidden");renderAll();go("dashboard")}
 function logoutApp(){localStorage.removeItem(USER_KEY);localStorage.removeItem(BUSINESS_KEY);currentUser=null;onboarding.classList.remove("hidden");authScreen.style.display="block";signupScreen.style.display="none";businessScreen.style.display="none";businessDetailsScreen.style.display="none";otpScreen.style.display="none";authId.value="";authPassword.value="";showAuth("login")}
 
+const seed={products:[],
 const seed={products:[
-{id:1,name:"Designer Saree",sku:"DS-001",category:"Saree",brand:"Rangoli",purchase:380,sell:550,mrp:699,stock:25,min:10,gst:5,unit:"pcs",size:"Free",color:"Multi",supplier:""},
-{id:2,name:"Organza Saree",sku:"OS-002",category:"Saree",brand:"Rangoli",purchase:450,sell:650,mrp:799,stock:8,min:15,gst:5,unit:"pcs",size:"Free",color:"Pista",supplier:""}],
+ {id:1,name:"cutter machine",sku:"HI-CM4SA",category:"tools",brand:"",purchase:1050,sell:1800,mrp:0,stock:3,min:5,gst:5,unit:"pcs",size:"",color:"",supplier:""},
+ {id:2,name:"cutter machine",sku:"HS-725BK",category:"tools",brand:"",purchase:2250,sell:2800,mrp:0,stock:1,min:5,gst:5,unit:"pcs",size:"",color:"",supplier:""},
+ {id:3,name:"cutter machine",sku:"xpt-412",category:"tools",brand:"",purchase:2200,sell:2800,mrp:0,stock:1,min:5,gst:5,unit:"pcs",size:"",color:"",supplier:""},
+ {id:4,name:"cutter machine",sku:"3-110",category:"tools",brand:"",purchase:2450,sell:3400,mrp:0,stock:1,min:5,gst:5,unit:"pcs",size:"",color:"",supplier:""},
+ {id:5,name:"cutter machine",sku:"MP-4SA",category:"tools",brand:"",purchase:1250,sell:1800,mrp:0,stock:1,min:5,gst:5,unit:"pcs",size:"",color:"",supplier:""},
+ {id:6,name:"cutter machine",sku:"CM4SB",category:"tools",brand:"",purchase:1300,sell:2100,mrp:0,stock:1,min:0,gst:5,unit:"pcs",size:"",color:"",supplier:""},
+
+ {id:7,name:"GLANDER",sku:"3-100A",category:"tools",brand:"",purchase:1625,sell:1900,mrp:0,stock:1,min:0,gst:5,unit:"pcs",size:"",color:"",supplier:""},
+ {id:8,name:"GLANDER",sku:"XPT405",category:"tools",brand:"",purchase:1800,sell:2150,mrp:0,stock:1,min:5,gst:5,unit:"pcs",size:"",color:"",supplier:""},
+ {id:9,name:"GLANDER",sku:"XPT401",category:"tools",brand:"",purchase:1800,sell:2150,mrp:0,stock:1,min:5,gst:5,unit:"pcs",size:"",color:"",supplier:""},
+ {id:10,name:"GLANDER",sku:"HN-801",category:"tools",brand:"",purchase:800,sell:1200,mrp:0,stock:2,min:5,gst:5,unit:"pcs",size:"",color:"",supplier:""},
+ {id:11,name:"GLANDER",sku:"DWE7050S",category:"tools",brand:"",purchase:2300,sell:3100,mrp:0,stock:1,min:5,gst:5,unit:"pcs",size:"",color:"",supplier:""},
+ {id:12,name:"GLANDER",sku:"04-100A",category:"tools",brand:"",purchase:1700,sell:2100,mrp:0,stock:1,min:5,gst:5,unit:"pcs",size:"",color:"",supplier:""},
+ {id:13,name:"GLANDER",sku:"GWS600",category:"tools",brand:"",purchase:2000,sell:2800,mrp:0,stock:2,min:5,gst:5,unit:"pcs",size:"",color:"",supplier:""},
+ {id:14,name:"GLANDER",sku:"DSJ25B",category:"tools",brand:"",purchase:1600,sell:1900,mrp:0,stock:1,min:5,gst:5,unit:"pcs",size:"",color:"",supplier:""},
+ {id:15,name:"GLANDER",sku:"M9512B",category:"tools",brand:"",purchase:2888,sell:3300,mrp:0,stock:1,min:5,gst:5,unit:"pcs",size:"",color:"",supplier:""},
+ {id:16,name:"GLANDER 5'",sku:"02-125B",category:"tools",brand:"",purchase:2800,sell:3500,mrp:0,stock:2,min:5,gst:5,unit:"pcs",size:"",color:"",supplier:""}
+],
 customers:[
 {id:1,name:"Ramesh Garments",shop:"Ramesh Garments",mobile:"9876543210",address:"Udaipur",gstin:"",opening:0,credit:50000,interestRate:12,interestGraceMonths:1},
 {id:2,name:"Shree Fashion",shop:"Shree Fashion",mobile:"9876500000",address:"Jaipur",gstin:"",opening:0,credit:30000,interestRate:12,interestGraceMonths:1}],
