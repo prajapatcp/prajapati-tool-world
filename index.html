@@ -1,8 +1,9 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script type="text/javascript" src="/___vscode_livepreview_injected_script"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Aapni Dukan - Wholesale Management</title>
@@ -683,7 +684,16 @@ function openOrder(){
       <select name="product">${productOptions(products)}</select>
     </div>
     ${field("qty","Quantity",1,"number")}
-    ${field("price","Selling Price",products[0]?.sell||0,"number")}
+   <div class="field">
+  <label>Selling Price</label>
+  <input
+    name="price"
+    type="number"
+    step="1"
+    min="0"
+    value="${products[0]?.sell||0}"
+  >
+</div>
     ${field("discount","Discount",0,"number")}
     <div class="field"><label>Amount</label><input name="amount" readonly value="0"></div>
     <button type="button" class="secondary remove-product" style="align-self:end">Remove</button>
@@ -703,21 +713,33 @@ function openOrder(){
 
   let form=document.getElementById("orderForm"),box=document.getElementById("orderProducts");
 
-  function sync(){
-    let total=0;
-    box.querySelectorAll(".order-product-row").forEach(r=>{
-      let s=r.querySelector('[name=product]');
-      let p=db.products.find(x=>x.id==s.value);
-      let price=r.querySelector('[name=price]');
-      let qty=r.querySelector('[name=qty]');
-      let disc=r.querySelector('[name=discount]');
-      if(document.activeElement!==price) price.value=p?.sell||0;
-      let amount=Math.max(0,(+qty.value||0)*(+price.value||0)-(+disc.value||0));
-      r.querySelector('[name=amount]').value=amount;
-      total+=amount;
-    });
-    document.getElementById("orderTotal").textContent="Total: "+money(total);
-  }
+ function sync(){
+  let total=0;
+
+  box.querySelectorAll(".order-product-row").forEach(r=>{
+
+    let s=r.querySelector('[name=product]');
+    let p=db.products.find(x=>x.id==s.value);
+
+    let price=r.querySelector('[name=price]');
+    let qty=r.querySelector('[name=qty]');
+    let disc=r.querySelector('[name=discount]');
+
+    let amount=Math.max(
+      0,
+      (+qty.value||0) * (+price.value||0) -
+      (+disc.value||0)
+    );
+
+    r.querySelector('[name=amount]').value=amount;
+
+    total+=amount;
+
+  });
+
+  document.getElementById("orderTotal").textContent =
+    "Total: "+money(total);
+}
 
   function filterProducts(r){
     let search=r.querySelector('.product-search');
